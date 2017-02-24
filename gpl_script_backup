@@ -1,0 +1,44 @@
+set term jpeg size 2048, 2048
+set term jpeg
+set out 'chart.jpg'
+set ylabel 'time [ms]'
+set xlabel 'packet size [bytes]'
+set logscale x 2
+set multiplot layout 2,2 rowsfirst
+set title 'Time for 100000 packets (tread pool and multi buffers)'
+plot 't1_tp_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "1 thread",\
+	't2_tp_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "2 threads",\
+	't3_tp_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "3 threads",\
+	't4_tp_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "4 threads",\
+	't5_tp_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "5 threads",\
+	't6_tp_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "6 threads",\
+	't7_tp_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "7 threads",\
+	't8_tp_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "8 threads"
+set title 'Time for 100000 packets (tread pool)'
+plot 't1_tp' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "1 thread",\
+	't2_tp' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "2 threads",\
+	't3_tp' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "3 threads",\
+	't4_tp' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "4 threads",\
+	't5_tp' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "5 threads",\
+	't6_tp' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "6 threads",\
+	't7_tp' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "7 threads",\
+	't8_tp' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "8 threads"
+set title 'Time for 100000 packets'
+plot 't1' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "1 thread",\
+	't2' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "2 threads",\
+	't3' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "3 threads",\
+	't4' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "4 threads",\
+	't5' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "5 threads",\
+	't6' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "6 threads",\
+	't7' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "7 threads",\
+	't8' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "8 threads"
+set title 'Time for 100000 packets (multi buffers)'
+plot 't1_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "1 thread",\
+	't2_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "2 threads",\
+	't3_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "3 threads",\
+	't4_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "4 threads",\
+	't5_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "5 threads",\
+	't6_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "6 threads",\
+	't7_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "7 threads",\
+	't8_mb' u 5:(((($5)*8)/(($6)/1000))/1024) w l title "8 threads"
+unset multiplot
