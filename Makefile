@@ -6,7 +6,7 @@ tests:
 	./xor_test -n 100000 ${ARGS}
 
 all_tests:
-	g++ -std=c++14 -g -pthread -lrt -o xor_test xor_test.cpp
+	g++ -std=c++14 -O3 -march=native -pthread -lrt -o xor_test xor_test.cpp
 	./xor_test -n 100000 ${ARGS}
 	./xor_test -n 100000 -mb ${ARGS}
 	./xor_test -n 100000 -tp ${ARGS}
